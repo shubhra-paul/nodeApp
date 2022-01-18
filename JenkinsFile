@@ -1,9 +1,14 @@
 pipeline {
+
   agent any
-  GIT_PASSWORD = "Tom@Jerry4"
-    GIT_USERNAME = "shubhra-paul"
+   
+    
   tools {nodejs "node"}
     
+    environment {
+        GIT_PASSWORD = "Tom@Jerry4"
+        GIT_USERNAME = "shubhra-paul"
+    }
   stages {
         
     stage('Git') {
