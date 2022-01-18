@@ -12,14 +12,32 @@ pipeline {
       }
     }
      
-    stage('Build') {
+    stage('Install') {
       steps {
           echo "npm install stage"
         sh 'npm install'
-        echo "creating build"
-         sh 'npm export'
-         echo "finished"
       }
+    }
+
+      stage('Run') {
+      steps {
+          echo "Running the app"
+          sh 'npm run dev'
+      }
+    }
+    stage('Build') {
+      steps {
+          echo "Running the build"
+          sh 'npm run build'
+      }
+    }
+
+    stage('Build') {
+      steps {
+          echo "Running the build"
+          sh 'next export'
+      }
+    }
     }  
     
     
