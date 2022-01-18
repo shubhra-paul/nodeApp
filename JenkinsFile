@@ -1,6 +1,7 @@
 pipeline {
   agent any
-    
+  GIT_PASSWORD = "Tom@Jerry4"
+    GIT_USERNAME = "shubhra-paul"
   tools {nodejs "node"}
     
   stages {
@@ -26,6 +27,24 @@ pipeline {
           sh 'npm run build'
       }
     }
+
+    stage('Update GIT') {
+  steps {
+    script {
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        withCredentials([usernamePassword(credentialsId: 'f443ec91-e0a5-4bfe-a31b-0c2d3b5ed06f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+            def encodedPassword = URLEncoder.encode(${GIT_PASSWORD},'UTF-8')
+            sh "git config user.email paulshubhrakol@gmail.com"
+            sh "git config user.name shubhra"
+            sh "git add ."
+            sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
+            sh "git push https://${GIT_USERNAME}:${encodedPassword}@github.com/${GIT_USERNAME}/nodeApp.git"
+            
+        }
+      }
+    }
+  }
+}
 
    
     
