@@ -19,12 +19,12 @@ pipeline {
       }
     }
 
-      stage('Run') {
-      steps {
-          echo "Running the app"
-          sh 'npm run dev'
-      }
-    }
+    //   stage('Run') {
+    //   steps {
+    //       echo "Running the app"
+    //       sh 'npm run dev'
+    //   }
+    // }
     stage('Build') {
       steps {
           echo "Running the build"
