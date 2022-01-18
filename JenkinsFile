@@ -1,15 +1,27 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
-        }
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
+    stage('Git') {
+      steps {
+          echo "Cloning stage"
+        git 'https://github.com/shubhra-paul/nodeApp.git'
+      }
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
-    }
+     
+    stage('Build') {
+      steps {
+          echo "npm install stage"
+        sh 'npm install'
+        echo "creating build"
+         sh 'npm export'
+         echo "finished"
+      }
+    }  
+    
+    
+  }
 }
