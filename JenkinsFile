@@ -32,7 +32,7 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('export') {
       steps {
           echo "Running the build"
           sh 'next export'
