@@ -41,11 +41,12 @@ pipeline {
            
             sh "git config user.email paulshubhrakol@gmail.com"
             sh "git config user.name shubhra-paul"
+            echo "new file display"
+            sh "git status"
             sh "git add ."
             sh "git commit -m 'Triggered Build:' "
             sh "git push https://github.com/shubhra-paul/nodeApp.git"
-            //sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/nodeApp.git"
-            
+           
         }
       }
     }
