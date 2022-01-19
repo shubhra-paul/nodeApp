@@ -40,10 +40,11 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'f443ec91-e0a5-4bfe-a31b-0c2d3b5ed06f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
            
             sh "git config user.email paulshubhrakol@gmail.com"
-            sh "git config user.name shubhra"
+            sh "git config user.name shubhra-paul"
             sh "git add ."
             sh "git commit -m 'Triggered Build:' "
-            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/nodeApp.git"
+            sh "git push https://github.com/shubhra-paul/nodeApp/tree/master"
+            //sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/nodeApp.git"
             
         }
       }
