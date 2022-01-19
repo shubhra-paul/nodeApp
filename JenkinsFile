@@ -43,7 +43,7 @@ pipeline {
             sh "git config user.name shubhra-paul"
             sh "git add ."
             sh "git commit -m 'Triggered Build:' "
-            sh "git push https://github.com/shubhra-paul/nodeApp/tree/master"
+            sh "git push https://github.com/shubhra-paul/nodeApp.git"
             //sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/nodeApp.git"
             
         }
