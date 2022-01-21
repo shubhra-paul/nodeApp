@@ -33,25 +33,25 @@ pipeline {
       }
     }
 
-    stage('Update GIT') {
-  steps {
-    script {
-      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-        withCredentials([usernamePassword(credentialsId: 'f443ec91-e0a5-4bfe-a31b-0c2d3b5ed06f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+//     stage('Update GIT') {
+//   steps {
+//     script {
+//       catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+//         withCredentials([usernamePassword(credentialsId: 'f443ec91-e0a5-4bfe-a31b-0c2d3b5ed06f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
            
-            sh "git config user.email paulshubhrakol@gmail.com"
-            sh "git config user.name shubhra-paul"
-            echo "new file display"
-            sh "git status"
-            sh "git add ."
-            sh "git commit -m 'Triggered Build:' "
-            sh "git push https://github.com/shubhra-paul/nodeApp.git"
+//             sh "git config user.email paulshubhrakol@gmail.com"
+//             sh "git config user.name shubhra-paul"
+//             echo "new file display"
+//             sh "git status"
+//             sh "git add ."
+//             sh "git commit -m 'Triggered Build:' "
+//             sh "git push https://github.com/shubhra-paul/nodeApp.git"
            
-        }
-      }
-    }
-  }
-}
+//         }
+//       }
+//     }
+//   }
+// }
 
    
     
